@@ -1,5 +1,3 @@
-# -*- coding:utf-8 -*-
-
 import cv2
 import numpy as np
 
@@ -36,7 +34,7 @@ unknow = cv2.subtract(sure_bg, sure_fg)
 # Step7. 连通区域处理
 ret, markers = cv2.connectedComponents(sure_fg)
 markers = markers + 1
-markers[unknow==255] = 0
+markers[unknow == 255] = 0
 
 # Step8.分水岭算法
 markers = cv2.watershed(img, markers)
